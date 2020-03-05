@@ -16,15 +16,15 @@ def sort(array):
     return fileList
 
 
-def showcase():
+def showcase(arLen=10,stLen=10):
     if not os.path.exists("sort_folder"):
         os.makedirs("sort_folder")
         
-    for i in range(20):
-        open("./sort_folder/"+"".join(random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k=10)),"a").close()
+    for i in range(arLen):
+        open("./sort_folder/"+"".join(random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k=stLen)),"a").close()
     
     fileList=os.listdir("./sort_folder")
     shutil.rmtree("./sort_folder")
     
-    for i in range(20):
+    for i in range(len(fileList)):
         print(fileList[i])
