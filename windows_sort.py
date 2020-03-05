@@ -1,6 +1,7 @@
 import os
 import shutil
 import random
+import string
 
 ranFlag=False
 
@@ -10,15 +11,18 @@ if not os.path.exists("sort_folder"):
 arrayLen=int(input("The length of your array is? (0 for random): "))
 
 if(arrayLen==0):
-    arrayLen=random.randint(2,50)
+    arrayLen=random.randint(10,50)
     ranFlag=True
 
 for i in range(0,arrayLen,1):
     if(ranFlag==False):
         open("./sort_folder/"+input("What do you want to sort?: "),"a").close()
     else:
-        open("./sort_folder/"+str(random.randint(0,4294967296)),"a").close() #generate random string, maybe?
+        open("./sort_folder/"+"".join(random.choices(string.ascii_uppercase + string.digits + string.ascii_lowercase, k=10)),"a").close()
 
-print(os.listdir("./sort_folder"))
+fileList=os.listdir("./sort_folder")
+
+for i in range(len(fileList)):
+    print(fileList[i])
 
 shutil.rmtree("./sort_folder")
