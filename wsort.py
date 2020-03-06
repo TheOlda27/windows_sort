@@ -7,6 +7,9 @@ import string
 def sort(array):
     if not os.path.exists("sort_folder"):
         os.makedirs("sort_folder")
+    else:
+        print("Sorting folder already exists.")
+        break
     
     for i in range(len(array)):
         open(("./sort_folder/"+array[i]),"a").close()
